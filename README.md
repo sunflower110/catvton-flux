@@ -6,7 +6,7 @@ Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt 
 ## Showcase
 | Original | Garment | Result |
 |----------|---------|---------|
-| ![Original](example/person/1.jpg) | ![Garment](example/garment/1.jpg) | ![Result](example/result/1.png) |
+| ![Original](example/person/1.jpg) | ![Garment](example/garment/00035_00.jpg) | ![Result](example/result/1.png) |
 | ![Original](example/person/1.jpg) | ![Garment](example/garment/04564_00.jpg) | ![Result](example/result/2.png) |
 | ![Original](example/person/00008_00.jpg) | ![Garment](example/garment/00034_00.jpg) | ![Result](example/result/3.png) |
 
