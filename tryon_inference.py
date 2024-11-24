@@ -10,8 +10,6 @@ def run_inference(
     image_path,
     mask_path,
     garment_path,
-    output_garment_path=None,
-    output_tryon_path='flux_inpaint_tryon.png',
     size=(576, 768),
     num_steps=50,
     guidance_scale=30,
@@ -82,9 +80,7 @@ def run_inference(
     garment_result = result.crop((0, 0, width, size[1]))
     tryon_result = result.crop((width, 0, width * 2, size[1]))
 
-    if output_garment_path is not None:
-        garment_result.save(output_garment_path)
-    tryon_result.save(output_tryon_path)
+    
     return garment_result, tryon_result
 
 def main():
@@ -115,6 +111,13 @@ def main():
         seed=args.seed,
         size=(args.width, args.height)
     )
+    output_garment_path=args.output_garment,
+    output_tryon_path=args.output_tryon,
+    
+    if output_garment_path is not None:
+        garment_result.save(output_garment_path)
+    tryon_result.save(output_tryon_path)
+    
     print("Successfully saved garment and try-on images")
 
 if __name__ == "__main__":

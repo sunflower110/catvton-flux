@@ -25,6 +25,7 @@ pip install -r requirements.txt
 
 ## Usage
 
+Run the following command to try on an image:
 ```bash
 python tryon_inference.py \
 --image ./example/person/00008_00.jpg \
@@ -33,9 +34,15 @@ python tryon_inference.py \
 --seed 42
 ```
 
+Run the following command to start a gradio demo:
+```bash
+python app.py
+```
+
+
 ## TODO:
 - [ ] Release the FID score
-- [ ] Add gradio demo
+- [x] Add gradio demo
 - [ ] Release updated weights with better performance
 
 ## Citation
