@@ -11,7 +11,7 @@ def gradio_inference(
     num_steps=50, 
     guidance_scale=30.0, 
     seed=-1, 
-    size=(576,768)
+    size=(768,1024)
 ):
     """Wrapper function for Gradio interface"""
     # Use temporary directory
@@ -55,6 +55,9 @@ def create_demo():
         gr.Markdown("""
         # CATVTON FLUX Virtual Try-On Demo
         Upload a model image, an agnostic mask, and a garment image to generate virtual try-on results.
+        
+        [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/xiaozaa/catvton-flux-alpha)
+        [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nftblackmagic/catvton-flux)
         """)
         
         with gr.Column():
