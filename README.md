@@ -1,17 +1,19 @@
 # catvton-flux
 
 An advanced virtual try-on solution that combines the power of [CATVTON](https://arxiv.org/abs/2407.15886) (Contrastive Appearance and Topology Virtual Try-On) with Flux fill inpainting model for realistic and accurate clothing transfer.
+Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt engineering.
 
 ## Showcase
-| Original | Result |
-|----------|--------|
-| ![Original](example/person/1.jpg) | ![Result](example/result/1.png) |
-| ![Original](example/person/00008_00.jpg) | ![Result](example/result/2.png) |
-| ![Original](example/person/00008_00.jpg) | ![Result](example/result/3.png) |
+| Original | Garment | Result |
+|----------|---------|---------|
+| ![Original](example/person/1.jpg) | ![Garment](example/garment/1.jpg) | ![Result](example/result/1.png) |
+| ![Original](example/person/1.jpg) | ![Garment](example/garment/04564_00.jpg) | ![Result](example/result/2.png) |
+| ![Original](example/person/00008_00.jpg) | ![Garment](example/garment/00034_00.jpg) | ![Result](example/result/3.png) |
 
 ## Model Weights
+Hugging Face: 🤗 [catvton-flux-alpha](https://huggingface.co/xiaozaa/catvton-flux-alpha)
+
 The model weights are trained on the [VITON-HD](https://github.com/shadow2496/VITON-HD) dataset.
-🤗 [catvton-flux-alpha](https://huggingface.co/xiaozaa/catvton-flux-alpha)
 
 ## Prerequisites
 ```bash
@@ -39,9 +41,20 @@ python tryon_inference.py \
 ## Citation
 
 ```bibtex
-@misc{jiang2024catvton,
-title={CATVTON: A Contrastive Approach for Virtual Try-On Network},
-author={Chao Jiang and Xujie Zhang}
+@misc{chong2024catvtonconcatenationneedvirtual,
+ title={CatVTON: Concatenation Is All You Need for Virtual Try-On with Diffusion Models}, 
+ author={Zheng Chong and Xiao Dong and Haoxiang Li and Shiyue Zhang and Wenqing Zhang and Xujie Zhang and Hanqing Zhao and Xiaodan Liang},
+ year={2024},
+ eprint={2407.15886},
+ archivePrefix={arXiv},
+ primaryClass={cs.CV},
+ url={https://arxiv.org/abs/2407.15886}, 
+}
+@article{lhhuang2024iclora,
+  title={In-Context LoRA for Diffusion Transformers},
+  author={Huang, Lianghua and Wang, Wei and Wu, Zhi-Fan and Shi, Yupeng and Dou, Huanzhang and Liang, Chen and Feng, Yutong and Liu, Yu and Zhou, Jingren},
+  journal={arXiv preprint arxiv:2410.23775},
+  year={2024}
 }
 ```
 

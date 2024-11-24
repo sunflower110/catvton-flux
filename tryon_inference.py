@@ -97,6 +97,8 @@ def main():
     parser.add_argument('--steps', type=int, default=50, help='Number of inference steps')
     parser.add_argument('--guidance-scale', type=float, default=30, help='Guidance scale')
     parser.add_argument('--seed', type=int, default=0, help='Random seed')
+    parser.add_argument('--width', type=int, default=768, help='Width')
+    parser.add_argument('--height', type=int, default=576, help='Height')
     
     args = parser.parse_args()
     
@@ -110,7 +112,8 @@ def main():
         output_tryon_path=args.output_tryon,
         num_steps=args.steps,
         guidance_scale=args.guidance_scale,
-        seed=args.seed
+        seed=args.seed,
+        size=(args.width, args.height)
     )
     print("Successfully saved garment and try-on images")
 
