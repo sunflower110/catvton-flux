@@ -65,6 +65,9 @@ python app.py
 }
 ```
 
+Thanks to [Jim](https://github.com/nom) for insisting on spatial concatenation.
+Thanks to [dingkang](https://github.com/dingkwang) [MoonBlvd](https://github.com/MoonBlvd) [Stevada](https://github.com/Stevada) for the helpful discussions.
+
 ## License
 - The code is licensed under the MIT License.
 - The model weights have the same license as Flux.1 Fill and VITON-HD.
