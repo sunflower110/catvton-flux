@@ -1,7 +1,18 @@
 # catvton-flux
 
-An advanced virtual try-on solution that combines the power of [CATVTON](https://arxiv.org/abs/2407.15886) (Contrastive Appearance and Topology Virtual Try-On) with Flux fill inpainting model for realistic and accurate clothing transfer.
+An state-of-the-art virtual try-on solution that combines the power of [CATVTON](https://arxiv.org/abs/2407.15886) (Contrastive Appearance and Topology Virtual Try-On) with Flux fill inpainting model for realistic and accurate clothing transfer.
 Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt engineering.
+
+## Update
+[![SOTA](https://img.shields.io/badge/SOTA-FID%205.59-brightgreen)](https://drive.google.com/file/d/1T2W5R1xH_uszGVD8p6UUAtWyx43rxGmI/view?usp=sharing)
+[![Dataset](https://img.shields.io/badge/Dataset-VITON--HD-blue)](https://github.com/shadow2496/VITON-HD)
+
+---
+**Latest Achievement** (2024/11/24):
+- Released FID score and gradio demo
+- CatVton-Flux-Alpha achieved **SOTA** performance with FID: `5.593255043029785` on VITON-HD dataset. Test configuration: scale 30, step 30. My VITON-HD test inferencing results available [here](https://drive.google.com/file/d/1T2W5R1xH_uszGVD8p6UUAtWyx43rxGmI/view?usp=sharing)
+
+---
 
 ## Showcase
 | Original | Garment | Result |
@@ -41,9 +52,10 @@ python app.py
 
 
 ## TODO:
-- [ ] Release the FID score
+- [x] Release the FID score
 - [x] Add gradio demo
 - [ ] Release updated weights with better performance
+- [ ] Train a smaller model
 
 ## Citation
 
