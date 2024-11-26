@@ -1,3 +1,13 @@
+title: catvton-flux
+emoji: 🖥️
+colorFrom: yellow
+colorTo: pink
+sdk: gradio
+sdk_version: 5.0.1
+app_file: app.py
+pinned: false
+license: mit
+
 # catvton-flux
 
 An state-of-the-art virtual try-on solution that combines the power of [CATVTON](https://arxiv.org/abs/2407.15886) (CatVTON: Concatenation Is All You Need for Virtual Try-On with Diffusion Models) with Flux fill inpainting model for realistic and accurate clothing transfer.
