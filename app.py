@@ -98,10 +98,9 @@ with gr.Blocks() as demo:
     with gr.Column():
         gr.Markdown("""
         ### ⚠️ Important:
-        1. Click 'Edit' on the Model Image
-        2. Draw a mask over the clothing area you want to replace
-        3. Click 'Save' when done
-        4. Then click 'Generate Try-On'
+        1. Choose a model image or upload your own
+        2. Use the Pen tool to draw a mask over the clothing area you want to replace
+        3. Choose a garment image or upload your own
         """)
         
         with gr.Row():
