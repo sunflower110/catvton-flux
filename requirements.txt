@@ -1,3 +1,5 @@
+accelerate
+git+https://github.com/huggingface/diffusers.git
 gradio==5.6.0
 gradio_client==1.4.3
 torch==2.4.0
@@ -5,10 +7,7 @@ torchvision==0.19.0
 tqdm==4.66.5
 transformers==4.43.3
 numpy==1.26.4
-accelerate==1.1.1
-sentencepiece==0.2.0
-protobuf==5.27.3
+sentencepiece
 peft==0.13.2
 huggingface-hub
 spaces
-git+https://github.com/huggingface/diffusers.git
