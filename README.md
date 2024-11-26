@@ -77,7 +77,7 @@ python app.py
 Gradio demo:
 
 <!-- Option 2: Using a thumbnail linked to the video -->
-[![Demo](example/github.jpg)](https://github.com/user-attachments/assets/e1e69dbf-f8a8-4f34-a84a-e7be5b3d0aec)
+<!-- [![Demo](example/github.jpg)](https://github.com/user-attachments/assets/e1e69dbf-f8a8-4f34-a84a-e7be5b3d0aec) -->
 
 
 ## TODO:

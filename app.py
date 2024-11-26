@@ -106,7 +106,7 @@ with gr.Blocks() as demo:
     [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nftblackmagic/catvton-flux)
     """)
     
-    gr.Video("example/github.mp4", label="Demo Video: How to use the tool")
+    # gr.Video("example/github.mp4", label="Demo Video: How to use the tool")
     
     with gr.Column():
         with gr.Row():
