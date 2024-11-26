@@ -37,26 +37,16 @@ else:
 
 device = torch.device('cuda')
 
-print("Start loading LoRA weights")
-state_dict, network_alphas = FluxFillPipeline.lora_state_dict(
-    pretrained_model_name_or_path_or_dict="xiaozaa/catvton-flux-lora-alpha",     ## The tryon Lora weights
-    weight_name="pytorch_lora_weights.safetensors",
-    return_alphas=True
-)
-is_correct_format = all("lora" in key or "dora_scale" in key for key in state_dict.keys())
-if not is_correct_format:
-    raise ValueError("Invalid LoRA checkpoint.")
 print('Loading diffusion model ...')
+transformer = FluxTransformer2DModel.from_pretrained(
+    "xiaozaa/catvton-flux-alpha", 
+    torch_dtype=torch.bfloat16
+)
 pipe = FluxFillPipeline.from_pretrained(
-    "black-forest-labs/FLUX.1-Fill-dev",
+    "black-forest-labs/FLUX.1-dev",
+    transformer=transformer,
     torch_dtype=torch.bfloat16
 ).to(device)
-FluxFillPipeline.load_lora_into_transformer(
-    state_dict=state_dict,
-    network_alphas=network_alphas,
-    transformer=pipe.transformer,
-)
-
 print('Loading Finished!')
 
 @spaces.GPU
@@ -109,7 +99,7 @@ def gradio_inference(
 
 with gr.Blocks() as demo:
     gr.Markdown("""
-    # CATVTON FLUX Virtual Try-On Demo (by using LoRA weights)
+    # CATVTON FLUX Virtual Try-On Demo
     Upload a model image, draw a mask, and a garment image to generate virtual try-on results.
     
     [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/xiaozaa/catvton-flux-alpha)

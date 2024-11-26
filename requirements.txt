@@ -8,6 +8,7 @@ numpy==1.26.4
 accelerate==1.1.1
 sentencepiece==0.2.0
 protobuf==5.27.3
+peft==0.13.2
 huggingface-hub
 spaces
 git+https://github.com/huggingface/diffusers.git

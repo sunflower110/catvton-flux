@@ -70,11 +70,17 @@ python tryon_inference.py \
 --steps 30
 ```
 
-Run the following command to start a gradio demo:
+Run the following command to start a gradio demo with LoRA weights:
 ```bash
 python app.py
 ```
-Gradio demo:
+
+Run the following command to start a gradio demo without LoRA weights:
+```bash
+python app_no_lora.py
+```
+
+<!-- Gradio demo: -->
 
 <!-- Option 2: Using a thumbnail linked to the video -->
 <!-- [![Demo](example/github.jpg)](https://github.com/user-attachments/assets/e1e69dbf-f8a8-4f34-a84a-e7be5b3d0aec) -->
