@@ -27,9 +27,9 @@ Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt 
 | ![Original](example/person/00008_00.jpg) | ![Garment](example/garment/00034_00.jpg) | ![Result](example/result/3.png) |
 
 ## Model Weights
-LORA weights in Hugging Face: 🤗 [catvton-flux-alpha](https://huggingface.co/xiaozaa/catvton-flux-alpha)
+Fine-tuning weights in Hugging Face: 🤗 [catvton-flux-alpha](https://huggingface.co/xiaozaa/catvton-flux-alpha)
 
-Fine-tuning weights in Hugging Face: 🤗 [catvton-flux-lora-alpha](https://huggingface.co/xiaozaa/catvton-flux-lora-alpha)
+LORA weights in Hugging Face: 🤗 [catvton-flux-lora-alpha](https://huggingface.co/xiaozaa/catvton-flux-lora-alpha)
 
 The model weights are trained on the [VITON-HD](https://github.com/shadow2496/VITON-HD) dataset.
 
