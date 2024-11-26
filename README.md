@@ -1,6 +1,6 @@
 # catvton-flux
 
-An state-of-the-art virtual try-on solution that combines the power of [CATVTON](https://arxiv.org/abs/2407.15886) (Contrastive Appearance and Topology Virtual Try-On) with Flux fill inpainting model for realistic and accurate clothing transfer.
+An state-of-the-art virtual try-on solution that combines the power of [CATVTON](https://arxiv.org/abs/2407.15886) (CatVTON: Concatenation Is All You Need for Virtual Try-On with Diffusion Models) with Flux fill inpainting model for realistic and accurate clothing transfer.
 Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt engineering.
 
 ## Update
