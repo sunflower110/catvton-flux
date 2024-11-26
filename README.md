@@ -94,7 +94,7 @@ Gradio demo:
 ## TODO:
 - [x] Release the FID score
 - [x] Add gradio demo
-- [ ] Release updated weights with better performance
+- [x] Release updated weights with better performance
 - [x] Train a smaller model
 - [ ] Support comfyui
 
