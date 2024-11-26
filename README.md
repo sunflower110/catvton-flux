@@ -8,6 +8,11 @@ Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt 
 ---
 **Latest Achievement** 
 
+(2024/11/26):
+- Updated the weights. (Still training on the VITON-HD dataset only.)
+    - Reduce the fine-tuning weights size (46GB -> 23GB)
+    - Weights has better performance on garment small details/text.
+
 (2024/11/25):
 - Released lora weights. Lora weights achieved FID: `6.0675811767578125` on VITON-HD dataset. Test configuration: scale 30, step 30.
 - Revise gradio demo. Added huggingface spaces support.
@@ -34,7 +39,7 @@ LORA weights in Hugging Face: 🤗 [catvton-flux-lora-alpha](https://huggingface
 The model weights are trained on the [VITON-HD](https://github.com/shadow2496/VITON-HD) dataset.
 
 ## Prerequisites
-Make sure you are runing the code with VRAM >= 40GB. (I run all my experiments on a 80GB GPU, lower VRAM will cause OOM error. Will support lower VRAM in the future.)
+Make sure you are running the code with VRAM >= 40GB. (I run all my experiments on a 80GB GPU, lower VRAM will cause OOM error. Will support lower VRAM in the future.)
 
 ```bash
 bash
