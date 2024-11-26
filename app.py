@@ -26,7 +26,7 @@ pipe = FluxFillPipeline.from_pretrained(
 ).to(device)
 print('Loading Finished!')
 
-@spaces.GPU
+@spaces.GPU(duration=90)
 def gradio_inference(
     image_data, 
     garment, 
