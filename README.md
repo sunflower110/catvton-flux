@@ -8,7 +8,7 @@ Also inspired by [In-Context LoRA](https://arxiv.org/abs/2410.23775) for prompt 
 ---
 **Latest Achievement** 
 (2024/11/25):
-- Released lora weights. FID: 6.0675811767578125 on VITON-HD dataset. Test configuration: scale 30, step 30.
+- Released lora weights. Lora weights achieved FID: `6.0675811767578125` on VITON-HD dataset. Test configuration: scale 30, step 30.
 - Revise gradio demo. Added huggingface spaces support.
 
 (2024/11/24):
