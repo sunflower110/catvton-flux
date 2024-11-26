@@ -17,12 +17,12 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print('Loading diffusion model ...')
 transformer = FluxTransformer2DModel.from_pretrained(
     "xiaozaa/catvton-flux-alpha", 
-    torch_dtype=device
+    torch_dtype=dtype
 )
 pipe = FluxFillPipeline.from_pretrained(
     "black-forest-labs/FLUX.1-dev",
     transformer=transformer,
-    torch_dtype=device
+    torch_dtype=dtype
 ).to(device)
 print('Loading Finished!')
 
