@@ -22,6 +22,9 @@ Running it now on website: [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/x
 ---
 **Latest Achievement** 
 
+(2024/12/1):
+- Community comfyui support [here](https://github.com/lujiazho/ComfyUI-CatvtonFluxWrapper). Thanks to [lujiazho](https://github.com/lujiazho)
+
 (2024/11/26):
 - Updated the weights. (Still training on the VITON-HD dataset only.)
     - Reduce the fine-tuning weights size (46GB -> 23GB)
