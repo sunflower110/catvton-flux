@@ -24,6 +24,7 @@ Running it now on website: [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/x
 
 (2024/12/6):
 - Released a new weights for tryoff. The model named [cat-tryoff-flux](https://huggingface.co/xiaozaa/cat-tryoff-flux) can extract and reconstruct the front view of clothing items from images of people wearing them. [Showcase examples](#try-off-examples) is here.
+- Try-off Hugging Face: 🤗 [CAT-TRYOFF-FLUX](https://huggingface.co/spaces/xiaozaa/cat-try-off-flux)
 
 (2024/12/1):
 - Community comfyui support [here](https://github.com/lujiazho/ComfyUI-CatvtonFluxWrapper). Thanks to [lujiazho](https://github.com/lujiazho)
@@ -135,7 +136,8 @@ python app_no_lora.py
 ```
 
 Gradio demo:
-Hugging Face: 🤗 [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/xiaozaa/catvton-flux-try-on)
+Try-on Hugging Face: 🤗 [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/xiaozaa/catvton-flux-try-on)
+Try-off Hugging Face: 🤗 [CAT-TRYOFF-FLUX](https://huggingface.co/spaces/xiaozaa/cat-try-off-flux)
 <!-- Option 2: Using a thumbnail linked to the video -->
 [![Demo](example/github.jpg)](https://upcdn.io/FW25b7k/raw/uploads/github.mp4)
 
