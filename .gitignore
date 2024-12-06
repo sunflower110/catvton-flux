@@ -53,3 +53,6 @@ Thumbs.db
 
 # Gradio cache
 .gradio/example/github.mp4
+
+aws/
+checkpoints/
