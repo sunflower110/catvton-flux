@@ -22,6 +22,9 @@ Running it now on website: [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/x
 ---
 **Latest Achievement** 
 
+(2024/12/6):
+- Released a new weights for tryoff. The model named [cat-tryoff-flux](https://huggingface.co/xiaozaa/cat-tryoff-flux) can extract and reconstruct the front view of clothing items from images of people wearing them. [Showcase examples](#try-off-examples) is here.
+
 (2024/12/1):
 - Community comfyui support [here](https://github.com/lujiazho/ComfyUI-CatvtonFluxWrapper). Thanks to [lujiazho](https://github.com/lujiazho)
 
@@ -43,17 +46,32 @@ Running it now on website: [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/x
 ---
 
 ## Showcase
+
+### Try-on examples
 | Original | Garment | Result |
 |----------|---------|---------|
 | ![Original](example/person/1.jpg) | ![Garment](example/garment/00035_00.jpg) | ![Result](example/result/1.png) |
 | ![Original](example/person/1.jpg) | ![Garment](example/garment/04564_00.jpg) | ![Result](example/result/2.png) |
 | ![Original](example/person/00008_00.jpg) | ![Garment](example/garment/00034_00.jpg) | ![Result](example/result/3.png) |
 
+### Try-off examples
+| Original clothed model | Restored garment result |
+|------------------------|------------------------|
+| ![Original](example/person/00055_00.jpg) | ![Restored garment result](example/tryoff_result/restored_garment2.png) |
+| ![Original](example/person/00064_00.jpg) | ![Restored garment result](example/tryoff_result/restored_garment4.png) |
+| ![Original](example/person/00069_00.jpg) | ![Restored garment result](example/tryoff_result/restored_garment6.png) |
+
+
 ## Model Weights
+### Tryon
 Fine-tuning weights in Hugging Face: 🤗 [catvton-flux-alpha](https://huggingface.co/xiaozaa/catvton-flux-alpha)
 
 LORA weights in Hugging Face: 🤗 [catvton-flux-lora-alpha](https://huggingface.co/xiaozaa/catvton-flux-lora-alpha)
 
+### Tryoff
+Fine-tuning weights in Hugging Face: 🤗 [cat-tryoff-flux](https://huggingface.co/xiaozaa/cat-tryoff-flux)
+
+### Dataset
 The model weights are trained on the [VITON-HD](https://github.com/shadow2496/VITON-HD) dataset.
 
 ## Prerequisites
@@ -69,6 +87,19 @@ huggingface-cli login
 
 ## Usage
 
+### Tryoff
+Run the following command to restore the front side of the garment from the clothed model image:
+```bash
+python tryoff_inference.py \
+--image ./example/person/00069_00.jpg \
+--mask ./example/person/00069_00_mask.png \
+--seed 41 \
+--output_tryon test_original.png \
+--output_garment restored_garment6.png \
+--steps 30
+```
+
+### Tryon
 Run the following command to try on an image:
 
 LORA version:
@@ -104,7 +135,7 @@ python app_no_lora.py
 ```
 
 Gradio demo:
-
+Hugging Face: 🤗 [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/xiaozaa/catvton-flux-try-on)
 <!-- Option 2: Using a thumbnail linked to the video -->
 [![Demo](example/github.jpg)](https://upcdn.io/FW25b7k/raw/uploads/github.mp4)
 
@@ -114,8 +145,8 @@ Gradio demo:
 - [x] Add gradio demo
 - [x] Release updated weights with better performance
 - [x] Train a smaller model
-- [ ] Support comfyui
-
+- [x] Support comfyui
+- [x] Release tryoff weights
 ## Citation
 
 ```bibtex
