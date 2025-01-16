@@ -21,6 +21,7 @@ Running it now on website: [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/x
 
 ---
 **Latest Achievement** 
+
 (2025/1/16):
 - Released a new version of tryon model [CATVTON-FLUX-BETA](https://huggingface.co/xiaozaa/catvton-flux-beta). This model can handle all kinds of garments. 
 - Released a training notes. This is a summary of what we found when doing the training. [Here](https://github.com/nftblackmagic/catvton-flux/blob/main/TrainingNotes.md)
