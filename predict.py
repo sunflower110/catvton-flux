@@ -19,8 +19,8 @@ class Predictor(BasePredictor):
                 hf_token: Secret = Input(description="Hugging Face API token. Create a write token at https://huggingface.co/settings/token. You also need to approve the Flux Dev terms."),
                 image: Path = Input(description="Image file path", default="https://github.com/nftblackmagic/catvton-flux/raw/main/example/person/1.jpg"),
                 mask: Path = Input(description="Mask file path", default="https://github.com/nftblackmagic/catvton-flux/blob/main/example/person/1_mask.png?raw=true"),
-                try_on: bool = Input(True, description="Try on or try off"),
-                garment: Path = Input(description="Garment file path", default="https://github.com/nftblackmagic/catvton-flux/raw/main/example/garment/00035_00.jpg"),
+                try_on: bool = Input(False, description="Try on or try off"),
+                garment: Path = Input(description="Garment file path like https://github.com/nftblackmagic/catvton-flux/raw/main/example/garment/00035_00.jpg", default=None),
                 num_steps: int = Input(50, description="Number of steps to run the model for"),
                 guidance_scale: float = Input(30, description="Guidance scale for the model"),
                 seed: int = Input(0, description="Seed for the model"),
@@ -30,9 +30,9 @@ class Predictor(BasePredictor):
         size = (width, height)
         i = load_image(str(image)).convert("RGB").resize(size)
         m = load_image(str(mask)).convert("RGB").resize(size)
-        g = load_image(str(garment)).convert("RGB").resize(size)
 
         if try_on:
+            g = load_image(str(garment)).convert("RGB").resize(size)
             self.transformer = self.try_on_transformer
         else:
             self.transformer = self.try_off_transformer
@@ -57,7 +57,11 @@ class Predictor(BasePredictor):
         # Transform images using the new preprocessing
         image_tensor = transform(i)
         mask_tensor = mask_transform(m)[:1]  # Take only first channel
-        garment_tensor = transform(g)
+        if try_on:
+            garment_tensor = transform(g)
+        else:
+            garment_tensor = torch.zeros_like(image_tensor)
+            image_tensor = image_tensor * mask_tensor
 
         # Create concatenated images
         inpaint_image = torch.cat([garment_tensor, image_tensor], dim=2)  # Concatenate along width
@@ -66,7 +70,7 @@ class Predictor(BasePredictor):
         if try_on:
             extended_mask = torch.cat([garment_mask, mask_tensor], dim=2)
         else:
-            extended_mask = torch.cat([1 - garment_mask, mask_tensor], dim=2)
+            extended_mask = torch.cat([1 - garment_mask, garment_mask], dim=2)
 
         prompt = f"The pair of images highlights a clothing and its styling on a model, high resolution, 4K, 8K; " \
                 f"[IMAGE1] Detailed product shot of a clothing" \
