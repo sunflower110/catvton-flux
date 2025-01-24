@@ -57,7 +57,11 @@ class Predictor(BasePredictor):
         # Transform images using the new preprocessing
         image_tensor = transform(i)
         mask_tensor = mask_transform(m)[:1]  # Take only first channel
-        garment_tensor = transform(g)
+        if try_on:
+            garment_tensor = transform(g)
+        else:
+            garment_tensor = torch.zeros_like(image_tensor)
+            image_tensor = image_tensor * mask_tensor
 
         # Create concatenated images
         inpaint_image = torch.cat([garment_tensor, image_tensor], dim=2)  # Concatenate along width
@@ -66,7 +70,7 @@ class Predictor(BasePredictor):
         if try_on:
             extended_mask = torch.cat([garment_mask, mask_tensor], dim=2)
         else:
-            extended_mask = torch.cat([1 - garment_mask, mask_tensor], dim=2)
+            extended_mask = torch.cat([1 - garment_mask, garment_mask], dim=2)
 
         prompt = f"The pair of images highlights a clothing and its styling on a model, high resolution, 4K, 8K; " \
                 f"[IMAGE1] Detailed product shot of a clothing" \
