@@ -19,8 +19,8 @@ class Predictor(BasePredictor):
                 hf_token: Secret = Input(description="Hugging Face API token. Create a write token at https://huggingface.co/settings/token. You also need to approve the Flux Dev terms."),
                 image: Path = Input(description="Image file path", default="https://github.com/nftblackmagic/catvton-flux/raw/main/example/person/1.jpg"),
                 mask: Path = Input(description="Mask file path", default="https://github.com/nftblackmagic/catvton-flux/blob/main/example/person/1_mask.png?raw=true"),
-                try_on: bool = Input(True, description="Try on or try off"),
-                garment: Path = Input(description="Garment file path", default="https://github.com/nftblackmagic/catvton-flux/raw/main/example/garment/00035_00.jpg"),
+                try_on: bool = Input(False, description="Try on or try off"),
+                garment: Path = Input(description="Garment file path like https://github.com/nftblackmagic/catvton-flux/raw/main/example/garment/00035_00.jpg", default=None),
                 num_steps: int = Input(50, description="Number of steps to run the model for"),
                 guidance_scale: float = Input(30, description="Guidance scale for the model"),
                 seed: int = Input(0, description="Seed for the model"),
@@ -30,9 +30,9 @@ class Predictor(BasePredictor):
         size = (width, height)
         i = load_image(str(image)).convert("RGB").resize(size)
         m = load_image(str(mask)).convert("RGB").resize(size)
-        g = load_image(str(garment)).convert("RGB").resize(size)
 
         if try_on:
+            g = load_image(str(garment)).convert("RGB").resize(size)
             self.transformer = self.try_on_transformer
         else:
             self.transformer = self.try_off_transformer
