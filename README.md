@@ -22,6 +22,9 @@ Running it now on website: [CATVTON-FLUX-TRY-ON](https://huggingface.co/spaces/x
 ---
 **Latest Achievement** 
 
+(2025/1/26):
+- Released the training code for Flux inpainting full para fine-tuning. It requires 2xH100 80GB.
+
 (2025/1/16):
 - Released a new version of tryon model [CATVTON-FLUX-BETA](https://huggingface.co/xiaozaa/catvton-flux-beta). This model can handle all kinds of garments. 
 - Released a training notes. This is a summary of what we found when doing the training. [Here](https://github.com/nftblackmagic/catvton-flux/blob/main/TrainingNotes.md)
@@ -92,7 +95,32 @@ huggingface-cli login
 
 ## Usage
 
-### Tryoff
+### Training steps
+#### Prepare the dataset
+You can download VITON-HD dataset from [VITON-HD](https://github.com/shadow2496/VITON-HD).
+The data structure is as follows:
+Structure of the Dataset directory should be as follows.
+
+
+```
+train
+|-- ...
+
+test
+|-- image
+|-- image-densepose
+|-- agnostic-mask
+|-- cloth
+```
+
+#### Train the model
+Run the following command to train the model (make sure you have 2xH100 80GB):
+```bash
+bash train_flux_inpaint.sh
+```
+Adjust the path to your dataset and txt file.
+
+### Tryoff inference
 Run the following command to restore the front side of the garment from the clothed model image:
 ```bash
 python tryoff_inference.py \
@@ -104,7 +132,7 @@ python tryoff_inference.py \
 --steps 30
 ```
 
-### Tryon
+### Tryon inference
 Run the following command to try on an image:
 
 LORA version:
@@ -153,6 +181,7 @@ Try-off Hugging Face: 🤗 [CAT-TRYOFF-FLUX](https://huggingface.co/spaces/xiaoz
 - [x] Train a smaller model
 - [x] Support comfyui
 - [x] Release tryoff weights
+- [x] Release Flux inpainting full para fine-tuning training code
 ## Citation
 
 ```bibtex
