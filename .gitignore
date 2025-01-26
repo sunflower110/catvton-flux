@@ -58,3 +58,6 @@ aws/
 checkpoints/
 
 .cog/
+
+wandb/
+trained-flux-inpaint*
